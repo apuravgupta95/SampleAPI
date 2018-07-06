@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/apuravgupta95/SampleAPI/issues"
   },
-  "homepage": "https://github.com/apuravgupta95/SampleAPI#readme"
+  "homepage": "https://github.com/apuravgupta95/SampleAPI#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-basic-auth": "^1.1.5"
+  }
 }
