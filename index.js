@@ -1,5 +1,7 @@
+
 var express = require('express');
 var app = express();
+const basicAuth = require('express-basic-auth');
 
 var emails = [
 		'apuravgupta@merck.com',
@@ -30,6 +32,12 @@ var developers = [
 	'hrthrrttt',
 ];
 
+//This is a middleware which executes before execution of code and is checking if user and pass is valid.
+//User name and password are sent as basic auth
+app.use(basicAuth({
+    users: { 'admin': 'supersecret' }
+}))
+
 app.get('/api/apps', (req,res) => {
 	
 	res.send(apps);
@@ -48,7 +56,7 @@ app.get('/api/emails', (req,res) => {
 	res.end();
 });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 app.listen(port, () =>{
 	console.log("Listening to port: " + port);
 });
